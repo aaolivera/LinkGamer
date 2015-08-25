@@ -1,0 +1,29 @@
+﻿@using Dominio.Recursos
+@using LinkGamer.Helpers
+<script type="text/javascript" src="@Url.Script("~/scripts/menu.js")"></script>
+<section class="featured">
+    <header>
+        <div class="content-wrapper">
+            <div class="float-right">
+                <nav>
+                    <ul style="list-style-type: none;">
+                        <li class="dropdown btn-group">
+                            <div  type="button" class="btn" @(User.Identity.IsAuthenticated ? "" : "disabled style=opacity:1") ><i class='glyphicon glyphicon-user'></i> @(User.Identity.IsAuthenticated ? User.Identity.Name : "Login")</div>
+                            <div type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                          </div>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                         <div id="logincontainer">
+                                                @Html.Partial("~/Views/Account/Login.cshtml")
+                                         </div>
+                                    </li>
+                                </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</section>
