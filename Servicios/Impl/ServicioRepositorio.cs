@@ -31,9 +31,9 @@ namespace Servicios.Impl
             return Listar<Usuario, UsuarioDto>().ToList();
         }
 
-        public UsuarioDto ObtenerUsuario(string nombreUsuario)
+        public UsuarioDto ObtenerUsuario(int id)
         {
-            return Obtener<Usuario, UsuarioDto>(x => x.NombreUsuario == nombreUsuario);
+            return Obtener<Usuario, UsuarioDto>(x => x.Id == id);
         }
 
 

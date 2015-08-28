@@ -1,5 +1,6 @@
 ﻿@using Dominio.Enum
 @using Dominio.Recursos
+@using LinkGamer.Helpers
 @{
     var mensaje = (string)TempData["Alerta"];
     var tipoMensaje = TempData["TipoAlerta"] as TipoAlerta?;
@@ -31,14 +32,17 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/themes/base/css")
     @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/css")
 
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery-common")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/custom-common")
+    <script type="text/javascript" src="@Url.Content("Scripts/jquery.signalR-2.2.0.min.js")"></script>
+    <script src="signalr/hubs"></script>
+    <script type="text/javascript" src="@Url.Content("Scripts/home.js")"></script>
     <script>
         //Se cierra el diálogo cuando se presiona ESC
         $(document).keyup(function (e) {
@@ -109,7 +113,7 @@
     </div>
     
     <footer>
-        <div class="content-wrapper">
+        <div class="content-wrapper fondorojo">
             <div class="float-left">
                 <p>&copy; @DateTime.Now.Year - @Textos.Menu_Titulo</p>
             </div>

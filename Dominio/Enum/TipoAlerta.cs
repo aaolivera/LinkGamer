@@ -1,11 +1,11 @@
 ﻿namespace Dominio.Enum
 {
 
-    public enum TipoAlerta
+    public enum TipoMensaje
     {
-        Exito,
-        Advertencia,
-        Error,
-        Informacion
+        Publico,
+        Privado,
+        Amigos,
+        Equipo
     }
 }

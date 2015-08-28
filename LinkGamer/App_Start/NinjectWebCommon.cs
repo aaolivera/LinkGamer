@@ -1,4 +1,7 @@
 using Dependencias;
+using LinkGamer.ServicioHub;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(LinkGamer.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(LinkGamer.App_Start.NinjectWebCommon), "Stop")]
@@ -63,6 +66,7 @@ namespace LinkGamer.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            GlobalHost.DependencyResolver.Register(typeof(IHubActivator), () => new HubActivator(kernel));
             kernel.Load(new WebNinjectModule());
         }        
     }
